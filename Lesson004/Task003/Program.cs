@@ -16,11 +16,12 @@ void Print(string mess)
 }
 
 int LenArray = InputFunction("Введите длинну массива: ");
+Console.Write("[");
 int[] RandomArray = new int[LenArray];
 for (int i = 0; i < RandomArray.Length; i++)
 {
     RandomArray[i] = new Random().Next(1, 100);
     Console.Write($"{RandomArray[i] + ", "}");
 }
-
+Console.Write("]");
 
