@@ -36,19 +36,22 @@ void RandArray(int numb)
 }
 
 void ShowNumber(double[] numbers){
-    double min = numbers[0];
-    double max = numbers[0];
+    double min = (int) numbers[0];
+    double max = (int) numbers[0];
+    double fractional_min = numbers[0] - min; 
+    double fractional_max = numbers[0] - max; 
     for (int i = 0; i < numbers.Length; i++)
     {
-        if (max < numbers[i]){
-            max = numbers[i]; 
+        double numb = numbers[i] - (int) numbers[i]; 
+        if (fractional_max < numb){
+            fractional_max = numb; 
         }
-        if (min > numbers[i]){
-            min = numbers[i]; 
+        if (fractional_min > numb){
+            fractional_min = numb; 
         }
     }
 
-    Console.WriteLine($"Разница между максимальной и минимальной вещественной частью элементов массива: {max - min:F3}"); 
+    Console.WriteLine($"Разница между максимальной и минимальной вещественной частью элементов массива: {fractional_max - fractional_min:F3}"); 
 }
 
 RandArray(InputNumber()); 
